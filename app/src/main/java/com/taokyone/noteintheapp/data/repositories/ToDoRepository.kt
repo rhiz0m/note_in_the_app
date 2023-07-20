@@ -1,12 +1,12 @@
 package com.taokyone.noteintheapp.data.repositories
 
-import androidx.room.Query
 import com.taokyone.noteintheapp.data.ToDoDao
 import com.taokyone.noteintheapp.data.models.ToDoTasks
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
-
-// Here we inject Dao
+@ViewModelScoped
+// Here we inject Dao / Data Access Object.
 class ToDoRepository @Inject constructor(private val toDoDao: ToDoDao) {
 
     val getAllTasks: Flow<List<ToDoTasks>> = toDoDao.getAllTasks()
