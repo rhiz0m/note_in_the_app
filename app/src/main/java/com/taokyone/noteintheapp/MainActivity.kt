@@ -10,17 +10,23 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.taokyone.noteintheapp.navigation.SetupNavigation
 import com.taokyone.noteintheapp.ui.theme.NoteintheappTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    private lateinit var navController: NavHostController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             NoteintheappTheme {
-                // A surface container using the 'background' color from the theme
 
+                navController = rememberNavController()
+                SetupNavigation(navController = navController)
             }
         }
     }
